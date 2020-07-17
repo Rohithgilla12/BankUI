@@ -32,14 +32,55 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    var boxDecoration = BoxDecoration(
+      color: BankTheme.primary,
+      borderRadius: BorderRadius.all(
+        Radius.circular(32),
+      ),
+    );
+
     return Scaffold(
       backgroundColor: BankTheme.black,
       appBar: buildAppBar(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
-        ),
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(top: 32),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 16),
+                  child: Container(
+                    height: 150,
+                    width: MediaQuery.of(context).size.width * 0.5 - 30,
+                    decoration: boxDecoration,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Total balance',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Nunito',
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16),
+                  child: Container(
+                      height: 150,
+                      width: MediaQuery.of(context).size.width * 0.5 - 30,
+                      decoration: boxDecoration),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -87,5 +128,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-
 }
