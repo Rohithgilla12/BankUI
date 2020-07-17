@@ -78,7 +78,8 @@ class _MyHomePageState extends State<MyHomePage> {
               'Hi, Gilla!',
               style: TextStyle(
                 fontSize: 24,
-                fontFamily: 'Avenir',
+                fontFamily: 'Nunito',
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -86,4 +87,5 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
 }
