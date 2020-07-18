@@ -1,5 +1,7 @@
 import 'package:bank_ui/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:flutter_sparkline/flutter_sparkline.dart';
 
 class PaymentStory extends StatelessWidget {
   const PaymentStory({Key key}) : super(key: key);
@@ -14,34 +16,103 @@ class PaymentStory extends StatelessWidget {
     return Scaffold(
       backgroundColor: BankTheme.black,
       appBar: buildAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            buildContainer(cardHeadingStyle),
-            SizedBox(
-              height: 30,
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                buildContainer(cardHeadingStyle),
+                SizedBox(
+                  height: 30,
+                ),
+                buildPassbook(
+                  '💊',
+                  'Healthcare',
+                  '18',
+                  '10th July',
+                ),
+                buildPassbook(
+                  '🛍',
+                  'Shopping',
+                  '200',
+                  '9th July',
+                ),
+                buildPassbook(
+                  '🚕',
+                  'Taxi',
+                  '70',
+                  '9th July',
+                ),
+              ],
             ),
-            buildPassbook(
-              '💊',
-              'Healthcare',
-              '18',
-              '10th July',
+          ),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: BankTheme.primary,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(32),
+                  topLeft: Radius.circular(32),
+                ),
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Container(
+                      height: 160,
+                      child: Sparkline(
+                        data: [0.0, 0.3, 0.2, 0.4, 0.3, 0.2, 0.3],
+                        lineWidth: 3.5,
+                        lineColor: BankTheme.violet,
+                        fillColor: BankTheme.violet,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 16.0,
+                      right: 16.0,
+                      top: 24.0,
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: BankTheme.black,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(16),
+                        ),
+                      ),
+                      height: 64,
+                      width: MediaQuery.of(context).size.width,
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Add Expense 💰',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 20,
+                              ),
+                            ),
+                            Icon(
+                              Icons.attach_money,
+                              color: Colors.white,
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            buildPassbook(
-              '🛍',
-              'Shopping',
-              '200',
-              '9th July',
-            ),
-            buildPassbook(
-              '🚕',
-              'Taxi',
-              '70',
-              '9th July',
-            ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
