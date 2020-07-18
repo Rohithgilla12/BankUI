@@ -1,3 +1,4 @@
+import 'package:bank_ui/payment_story.dart';
 import 'package:bank_ui/theme.dart';
 import 'package:bank_ui/widgets/card_widget.dart';
 import 'package:bank_ui/widgets/my_cards.dart';
@@ -128,7 +129,13 @@ class _MyHomePageState extends State<MyHomePage> {
               Icons.notifications_none,
               size: 32,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => PaymentStory(),
+                ),
+              );
+            },
           ),
         ),
       ],
