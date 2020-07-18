@@ -59,9 +59,56 @@ class _MyHomePageState extends State<MyHomePage> {
             data: data,
             data2: data2,
           ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              'My Cards',
+              style: TextStyle(
+                fontSize: 24,
+                color: Colors.white,
+              ),
+            ),
+          ),
           MyCards(
             cardHeadingStyle: cardHeadingStyle,
           ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 24.0,
+              right: 24.0,
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                color: BankTheme.primary,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(16),
+                ),
+              ),
+              height: 64,
+              width: MediaQuery.of(context).size.width,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Add card',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                      ),
+                    ),
+                    Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    )
+                  ],
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

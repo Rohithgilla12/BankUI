@@ -14,7 +14,7 @@ class MyCards extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Container(
-        height: 400,
+        height: 380,
         child: Stack(
           children: [
             Container(
