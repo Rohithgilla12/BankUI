@@ -1,4 +1,5 @@
 import 'package:bank_ui/theme.dart';
+import 'package:bank_ui/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 
@@ -44,7 +45,101 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: BankTheme.black,
       appBar: buildAppBar(),
-      body: CardBal(boxDecoration: boxDecoration, data: data, data2: data2),
+      body: Column(
+        children: [
+          CardBal(
+            boxDecoration: boxDecoration,
+            data: data,
+            data2: data2,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Container(
+              height: 400,
+              child: Stack(
+                // alignment: Alignment.bottomCenter,
+                // overflow: Overflow.clip,
+                children: [
+                  Container(
+                    height: 120,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          BankTheme.orange,
+                          Colors.orange[100],
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular((30)),
+                        topRight: Radius.circular((30)),
+                      ),
+                      border: Border.all(
+                        color: BankTheme.black,
+                        width: 4,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 75.0,
+                    left: 0.0,
+                    right: 0.0,
+                    child: Container(
+                      height: 120,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular((30)),
+                          topRight: Radius.circular((30)),
+                        ),
+                        border: Border.all(
+                          color: BankTheme.black,
+                          width: 4,
+                        ),
+                        gradient: LinearGradient(
+                          colors: [
+                            BankTheme.violet,
+                            // BankTheme.palePurple,
+                            Color(0xffE0ABF2)
+                          ],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 150.0,
+                    left: 0.0,
+                    right: 0.0,
+                    child: Container(
+                      height: 220,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular((30)),
+                        ),
+                        border: Border.all(
+                          color: BankTheme.black,
+                          width: 4,
+                        ),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xffFCA7E2),
+                            Color(0xffFC9FD2),
+                            Color(0xffFCD8BD),
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -89,133 +184,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class CardBal extends StatelessWidget {
-  const CardBal({
-    Key key,
-    @required this.boxDecoration,
-    @required this.data,
-    @required this.data2,
-  }) : super(key: key);
-
-  final BoxDecoration boxDecoration;
-  final List<double> data;
-  final List<double> data2;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(top: 32),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: Container(
-                  height: 150,
-                  width: MediaQuery.of(context).size.width * 0.5 - 30,
-                  decoration: boxDecoration,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Total balance',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Nunito',
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12.0),
-                        child: Text(
-                          '\$ 15,269',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Nunito',
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 32.0,
-                          right: 32.0,
-                          top: 8,
-                        ),
-                        child: Container(
-                          height: 40,
-                          child: Sparkline(
-                            data: data,
-                            lineWidth: 3.5,
-                            lineColor: BankTheme.lightBlue,
-                            fillColor: BankTheme.lightBlue,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: Container(
-                  height: 150,
-                  width: MediaQuery.of(context).size.width * 0.5 - 30,
-                  decoration: boxDecoration,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Monthly Spending',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Nunito',
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12.0),
-                        child: Text(
-                          '\$ 7,175',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Nunito',
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 32.0,
-                          right: 32.0,
-                          top: 8,
-                        ),
-                        child: Container(
-                          height: 40,
-                          child: Sparkline(
-                            data: data2,
-                            lineColor: BankTheme.pink,
-                            fillColor: BankTheme.pink,
-                            lineWidth: 3.5,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
     );
   }
 }

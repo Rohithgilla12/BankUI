@@ -9,7 +9,7 @@ class BankTheme {
 
   static const Color pink = Color(0xffea5eb8);
 
-  static const Color violet = Color(0xff8f619d);
+  static const Color violet = Color(0xff7B65E5);
 
   static const Color primary = Color(0xff2B2A65);
 
