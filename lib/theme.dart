@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class BankTheme {
-  static const Color black = Color(0xff1A1D46);
+  static const Color black = Color(0xff1B1E49);
 
-  static const Color lightBlue = Color(0xffa4a7fa);
+  static const Color lightBlue = Color(0xff58C1FE);
 
   static const Color palePurple = Color(0xffccd0fd);
 
