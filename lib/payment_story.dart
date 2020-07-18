@@ -1,6 +1,5 @@
 import 'package:bank_ui/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 
 class PaymentStory extends StatelessWidget {
